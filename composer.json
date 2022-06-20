@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phalcon/devtools": "^4.2"
+    },
+    "require-dev": {
+        "phalcon/migrations": "^2.2"
+    }
+}
