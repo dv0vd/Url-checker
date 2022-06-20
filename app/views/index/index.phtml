@@ -1,0 +1,23 @@
+<form action="/add_url" method="post">
+    <div id='form'>
+        <div>
+            <label for="url">url для проверки</label>
+            <input type="url" name="url">
+        </div>
+        <div>
+        </div>
+        <div>
+            <label for="freq">Частота проверки</label>
+            <select name="freq">
+                <option value="1">1 мин</option>
+                <option value="5">5 мин</option>
+                <option value="10">10 мин</option>
+            </select>
+        </div>
+        <div>
+            <label for="repeats">Количество повторов в случае ошибки</label>
+            <input type="number" name="repeats" value='0' min='0' max='10'>
+        </div>
+    </div>
+    <button type="submit">Добавить</button>
+</form>
