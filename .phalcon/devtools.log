@@ -1,0 +1,1 @@
+Tue 21 15:18:12 slava php: [notice] E_NOTICE: Undefined index: port in /var/www/html/vendor/phalcon/devtools/src/Providers/DatabaseProvider.php on line 61

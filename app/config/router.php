@@ -2,9 +2,17 @@
 
 $router = $di->getRouter();
 
+
+
 // Define your routes here
 
-$router->handle($_SERVER['REQUEST_URI']);
+$router->add(
+    '/',
+    [
+        'controller' => 'index',
+        'action'     => 'index',
+    ]
+);
 
 $router->add(
     '/addUrl',
@@ -13,3 +21,14 @@ $router->add(
         'action'     => 'addUrl',
     ]
 );
+
+$router->notFound(
+    [
+        'controller' => 'error',
+        'action'     => 'notFound',
+    ]
+);
+
+$router->handle($_SERVER['REQUEST_URI']);
+
+

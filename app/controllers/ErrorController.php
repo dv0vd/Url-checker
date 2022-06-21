@@ -1,13 +1,17 @@
 <?php
 declare(strict_types=1);
 
+use Phalcon\Http\Response;
+
 class ErrorController extends \Phalcon\Mvc\Controller
 {
 
     public function notFoundAction()
     {
-        $this->response->setStatusCode(404, 'Not Found');
-        $this->response->redirect('/');
+        $response = new Response();
+        $response -> setStatusCode(404, 'Not Found');
+        $response -> redirect('/'); 
+        return $response;
     }
 
 }
