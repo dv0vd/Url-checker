@@ -19,6 +19,7 @@ $("#addUrlForm").submit(function(e){
             return;
         }
         alert(data[0].message);
+        if(data[0].result) $("#addUrlForm")[0].reset();
       },
       error: function (data) {
         alert("Произошла неизвестная ошибка");

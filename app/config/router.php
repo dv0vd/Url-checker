@@ -22,6 +22,30 @@ $router->add(
     ]
 );
 
+$router->add(
+    '/admin',
+    [
+        'controller' => 'admin',
+        'action'     => 'index',
+    ]
+);
+
+$router->add(
+    '/admin/getUrls',
+    [
+        'controller' => 'admin',
+        'action'     => 'getUrls',
+    ]
+);
+
+$router->add(
+    '/admin/url/{id}',
+    [
+        'controller' => 'admin',
+        'action'     => 'url',
+    ]
+);
+
 $router->notFound(
     [
         'controller' => 'error',

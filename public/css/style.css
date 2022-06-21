@@ -11,3 +11,13 @@ body{
 #form div{
     margin-bottom: 10px; 
 }
+
+#admin_urls {
+    margin:auto;
+    width: 100%;
+    text-align: center;
+}
+
+#admin_urls td, #admin_urls th{
+    border: solid black 1px;
+}
