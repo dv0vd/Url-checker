@@ -30,6 +30,28 @@ class IndexController extends ControllerBase
                 }
                 return json_encode($response);
             }
+
+            $url = Urls::findByUrl($request -> getPost("url"));
+            if(count($url) > 0) {
+                $response = [["result" => false, "message" => "Данный url уже присутствует в базе данных!"]];
+                return json_encode($response);
+            } else {
+                $url = new Urls();
+                $url -> freq = $request -> getPost('freq');
+                $url -> repeats = $request -> getPost('repeats');
+                $url -> url = $request -> getPost('url');
+                $url -> datetime = date('Y-m-d H:i:s');
+                if($url -> save()) {
+                    $response = [["result" => true, "message" => "Успех!"]];
+                    return json_encode($response);
+                } else{
+                    $messages = $url->getMessages();
+                    foreach ($messages as $message) {
+                        array_push($response, $message);
+                    }
+                    return json_encode($response);
+                }
+            }
         } else {
             $response = [["result" => false, "message" => "Неверный запрос"]];
             return json_encode($response);
