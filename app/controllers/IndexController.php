@@ -9,5 +9,10 @@ class IndexController extends ControllerBase
         $this -> view -> title = "Сервис проверки доступности url-ов";
     }
 
+    public function addUrlAction(){
+        $response = ["result" => true, "message" => "OK"];
+        return json_encode($result);
+    }
+
 }
 
