@@ -31,7 +31,8 @@
                     data[i].url +"</td><td>" + data[i].freq + " мин</td><td>" + 
                     data[i].repeats + "</td><td>" + data[i].datetime +
                     "</td><td><a href='/admin/url/" + data[i].url_id + 
-                    "'>Подробнее</a></td></tr>");
+                    "'>Подробнее</a><a class='removeUrlLink' href='/admin/url/remove/" + data[i].url_id + 
+                    "'>Удалить</a></td></tr>");
                 }
             },
             error: function (data) {

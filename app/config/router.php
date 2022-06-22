@@ -47,6 +47,14 @@ $router->add(
 );
 
 $router->add(
+    '/admin/url/remove/{url_id}',
+    [
+        'controller' => 'admin',
+        'action'     => 'removeUrl',
+    ]
+);
+
+$router->add(
     '/admin/getCheckInfo/{url_id}',
     [
         'controller' => 'admin',

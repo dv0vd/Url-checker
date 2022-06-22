@@ -21,3 +21,7 @@ table {
 table td, table th{
     border: solid black 1px;
 }
+
+#admin_urls tbody a{
+    margin-right:10px;
+}

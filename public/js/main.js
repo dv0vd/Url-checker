@@ -30,3 +30,20 @@ $("#addUrlForm").submit(function(e){
       }
     });
 });
+
+$(document).on ("click", ".removeUrlLink", function (e) {
+  e.preventDefault();
+  if(confirm("Действительно удалить?")){
+    $.ajax({
+      url: $(this).attr("href"),
+      type: "post",
+      dataType: 'JSON',
+      success: function (data) {
+        alert(data.message);
+      },
+      error: function (data) {
+        alert("Произошла неизвестная ошибка");
+      }
+    });
+  }
+});

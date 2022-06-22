@@ -41,5 +41,17 @@ class AdminController extends \Phalcon\Mvc\Controller
         
     }
 
+    public function removeUrlAction($url_id) {
+        $url = Urls::findFirstByUrlId($url_id);
+        if($url != null) {
+            $url -> delete();
+            $response = ["result" => true, "message" => "Успех!"];
+            return json_encode($response);
+        } else {
+            $response = ["result" => false, "message" => "Url с данным id не существует!"];
+            return json_encode($response);
+        }
+    }
+
 }
 
