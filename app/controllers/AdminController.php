@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use Phalcon\Mvc\View;
+
 class AdminController extends \Phalcon\Mvc\Controller
 {
 
@@ -21,9 +23,22 @@ class AdminController extends \Phalcon\Mvc\Controller
         }
     }
 
-    public function urlAction($id){
-        $url = Urls::findFirstByUrlId($id);
+    public function urlAction($url_id){
+        $url = Urls::findFirstByUrlId($url_id);
         $this -> view -> url = $url;
+        $this -> view -> title = $url -> url;
+    }
+
+    public function getCheckInfoAction($url_id) {
+        $request = $this -> request;
+        if($request -> isPost() && $request -> isAjax()) {
+            $check = Checks::findFirstByUrlId($url_id);
+            return json_encode($check);
+        } else {
+            $response = [["result" => false, "message" => "Неверный запрос"]];
+            return json_encode($response);
+        }
+        
     }
 
 }

@@ -1,5 +1,5 @@
 <h1><?php echo $url -> url;?></h1>
-<table id='admin_urls' cellspacing=0>
+<table id='admin_check_info' cellspacing=0>
     <thead>
         <tr>
             <th>Дата проверки</th>
@@ -10,30 +10,35 @@
     <tbody>
     </tbody>
 </table>
+<a href="/admin">Назад</a>
 <script>
-    function getUrls() {
-        // $.ajax({
-        //     url: '/admin/getUrls',
-        //     type: "post",
-        //     dataType: 'JSON',
-        //     success: function (data) {
-        //     $("#admin_urls tbody").empty();
-        //     for(var i = 0; i < data.length; i++) {
-        //         $("#admin_urls tbody").append("<tr><td>" + 
-        //         data[i].url +"</td><td>" + data[i].freq + " сек</td><td>" + 
-        //         data[i].repeats + "</td><td>" + data[i].datetime +
-        //         "</td><td><a href='/admin/url/" + data[i].url_id + 
-        //         "'>Подробнее</a></td></tr>");
-        //     }
-        //     },
-        //     error: function (data) {
-        //         alert("Произошла неизвестная ошибка");
-        //     }
-        // });
+    function getCheck() {
+        $.ajax({
+            url: '/admin/getCheckInfo/<?php echo $url -> url_id?>',
+            type: "post",
+            dataType: 'JSON',
+            success: function (data) {
+                $("#admin_check_info tbody").empty();
+                if(data === null) {
+                    return;
+                }
+                if(data.result == false) {
+                    alert(data.message);
+                }
+                for(var i = 0; i < data.length; i++) {
+                    $("#admin_check_info tbody").append("<tr><td>" + 
+                    data[i].datetime +"</td><td>" + data[i].http + "</td><td>" + 
+                    data[i].try_no + "</td></tr>");
+                }
+            },
+            error: function (data) {
+                alert("Произошла неизвестная ошибка");
+            }
+        });
     }
 
-    // getUrls();
+    getCheck();
 
-    // setInterval(getUrls(), 1000);
+    setInterval(getCheck, 10000);
 
 </script>

@@ -39,10 +39,18 @@ $router->add(
 );
 
 $router->add(
-    '/admin/url/{id}',
+    '/admin/url/{url_id}',
     [
         'controller' => 'admin',
         'action'     => 'url',
+    ]
+);
+
+$router->add(
+    '/admin/getCheckInfo/{url_id}',
+    [
+        'controller' => 'admin',
+        'action'     => 'getCheckInfo',
     ]
 );
 
