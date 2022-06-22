@@ -20,6 +20,9 @@
             dataType: 'JSON',
             success: function (data) {
                 $("#admin_urls tbody").empty();
+                if(data === null) {
+                    return;
+                }
                 if(data.result == false) {
                     alert(data.message);
                 }
