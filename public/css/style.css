@@ -12,12 +12,12 @@ body{
     margin-bottom: 10px; 
 }
 
-#admin_urls {
+table {
     margin:auto;
     width: 100%;
     text-align: center;
 }
 
-#admin_urls td, #admin_urls th{
+table td, table th{
     border: solid black 1px;
 }
