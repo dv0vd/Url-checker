@@ -31,7 +31,10 @@ class IndexController extends ControllerBase
                 }
                 return json_encode($response);
             }
-
+            if($request -> getPost('repeats') >= $request -> getPost('freq')) {
+                $response = [["result" => false, "message" => "Количество повторов должно быть меньше частоты проверки!"]];
+                return json_encode($response);
+            }
             $url = Urls::findByUrl($request -> getPost("url"));
             if(count($url) > 0) {
                 $response = [["result" => false, "message" => "Данный url уже присутствует в базе данных!"]];
