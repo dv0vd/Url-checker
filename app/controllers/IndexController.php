@@ -19,6 +19,7 @@ class IndexController extends ControllerBase
     }
 
     public function addUrlAction(){
+        $this->view->setRenderLevel(View::LEVEL_NO_RENDER);
         $request = $this -> request;
         if($request -> isPost() && $request -> isAjax()) {
             $test = new Url();

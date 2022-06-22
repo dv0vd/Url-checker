@@ -12,6 +12,7 @@
     </tbody>
 </table>
 <script>
+
     function getUrls() {
         $.ajax({
             url: '/admin/getUrls',
@@ -35,6 +36,6 @@
 
     getUrls();
 
-    setInterval(getUrls(), 3000);
+    setInterval(getUrls, 3000);
 
 </script>

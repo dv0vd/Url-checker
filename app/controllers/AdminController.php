@@ -10,6 +10,7 @@ class AdminController extends \Phalcon\Mvc\Controller
     }
 
     public function getUrlsAction() {
+        $this->view->setRenderLevel(View::LEVEL_NO_RENDER);
         $request = $this -> request;
         if($request -> isPost() && $request -> isAjax()) {
             $urls = Urls::find();
@@ -21,7 +22,8 @@ class AdminController extends \Phalcon\Mvc\Controller
     }
 
     public function urlAction($id){
-        echo $id;
+        $url = Urls::findFirstByUrlId($id);
+        $this -> view -> url = $url;
     }
 
 }
