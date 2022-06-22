@@ -19,14 +19,17 @@
             type: "post",
             dataType: 'JSON',
             success: function (data) {
-            $("#admin_urls tbody").empty();
-            for(var i = 0; i < data.length; i++) {
-                $("#admin_urls tbody").append("<tr><td>" + 
-                data[i].url +"</td><td>" + data[i].freq + " сек</td><td>" + 
-                data[i].repeats + "</td><td>" + data[i].datetime +
-                "</td><td><a href='/admin/url/" + data[i].url_id + 
-                "'>Подробнее</a></td></tr>");
-            }
+                $("#admin_urls tbody").empty();
+                if(data.result == false) {
+                    alert(data.message);
+                }
+                for(var i = 0; i < data.length; i++) {
+                    $("#admin_urls tbody").append("<tr><td>" + 
+                    data[i].url +"</td><td>" + data[i].freq + " сек</td><td>" + 
+                    data[i].repeats + "</td><td>" + data[i].datetime +
+                    "</td><td><a href='/admin/url/" + data[i].url_id + 
+                    "'>Подробнее</a></td></tr>");
+                }
             },
             error: function (data) {
                 alert("Произошла неизвестная ошибка");
