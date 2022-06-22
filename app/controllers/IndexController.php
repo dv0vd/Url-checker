@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-
+use Phalcon\Mvc\View;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Url;
 use Phalcon\Validation\Validator\PresenceOf;
