@@ -32,7 +32,7 @@ class AdminController extends \Phalcon\Mvc\Controller
     public function getCheckInfoAction($url_id) {
         $request = $this -> request;
         if($request -> isPost() && $request -> isAjax()) {
-            $check = Checks::findFirstByUrlId($url_id);
+            $check = Checks::findByUrlId($url_id);
             return json_encode($check);
         } else {
             $response = [["result" => false, "message" => "Неверный запрос"]];
