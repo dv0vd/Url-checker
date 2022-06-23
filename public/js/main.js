@@ -40,6 +40,7 @@ $(document).on ("click", ".removeUrlLink", function (e) {
       dataType: 'JSON',
       success: function (data) {
         alert(data.message);
+        getUrls();
       },
       error: function (data) {
         alert("Произошла неизвестная ошибка");
