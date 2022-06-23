@@ -1,6 +1,6 @@
 $("#addUrlForm").submit(function(e){
     e.preventDefault();
-    if($("#repeats").val() >= $("#freq").val()) {
+    if(parseInt($("#repeats").val()) >= parseInt($("#freq").val())) {
       alert("Количество повторов должно быть меньше частоты проверки!");
       return;
     }
